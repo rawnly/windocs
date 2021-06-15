@@ -1,0 +1,28 @@
+
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
+.gridLayout {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 350px auto;
+}
+
+.gridSidebar {
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.gridContent {
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
