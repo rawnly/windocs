@@ -26,9 +26,11 @@ interface ISidebarProps {
   navigation: Navigation;
   className?: Value;
   title?: string;
+  buttonLabel?: string;
+  onButtonClick(): void
 }
 
-const Sidebar: FC<ISidebarProps> = ( { navigation = [], className, title } ) => {
+const Sidebar: FC<ISidebarProps> = ( { navigation = [], buttonLabel, onButtonClick, className, title } ) => {
   const onClick = useCallback( ( id: string ) => ( e: React.MouseEvent<HTMLAnchorElement, MouseEvent> ) => {
     const container = document.querySelector( '#container' )
     const element = document.querySelector( id )
@@ -108,6 +110,12 @@ const Sidebar: FC<ISidebarProps> = ( { navigation = [], className, title } ) => 
             )
           )}
         </nav>
+
+        {onButtonClick && buttonLabel && (
+          <button className='px-4 bg-indigo-500 bg-opacity-50 active:ring-1 active:ring-indigo-500 rounded text-white hover:bg-indigo-600 mx-auto py-2' onClick={onButtonClick}>
+            {buttonLabel}
+          </button>
+        )}
       </div>
     </div>
   );
